@@ -38,7 +38,9 @@ public final class BruteForceExactCoverSolver implements ExactCoverSolver {
                            boolean[] covered,
                            List<Integer> selectedRows) {
         
-        if (coveredCount == instance.width()) {
+        final int width = instance.width();
+        
+        if (coveredCount == width) {
             return true;
         }
         
@@ -50,7 +52,7 @@ public final class BruteForceExactCoverSolver implements ExactCoverSolver {
         boolean compatible = true;
         int newlyCovered   = 0;
         
-        for (int x = 0; x < instance.width(); ++x) {
+        for (int x = 0; x < width; ++x) {
             if (instance.get(x, row)) {
                 if (covered[x]) {
                     compatible = false;
@@ -62,7 +64,7 @@ public final class BruteForceExactCoverSolver implements ExactCoverSolver {
         }
         
         if (compatible) {
-            for (int x = 0; x < instance.width(); ++x) {
+            for (int x = 0; x < width; ++x) {
                 if (instance.get(x, row)) {
                     covered[x] = true;
                 }
@@ -81,7 +83,7 @@ public final class BruteForceExactCoverSolver implements ExactCoverSolver {
             
             selectedRows.removeLast();
             
-            for (int x = 0; x < instance.width(); ++x) {
+            for (int x = 0; x < width; ++x) {
                 if (instance.get(x, row)) {
                     covered[x] = false;
                 }

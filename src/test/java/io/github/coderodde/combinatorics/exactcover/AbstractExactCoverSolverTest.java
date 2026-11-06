@@ -29,7 +29,6 @@ public abstract class AbstractExactCoverSolverTest {
         this.solver = solver;
     }
     
-    
     @Test
     public void touchUncover() {
         ExactCoverInstance instance = instance1();

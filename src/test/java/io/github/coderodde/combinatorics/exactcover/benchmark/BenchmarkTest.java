@@ -1,5 +1,8 @@
-package io.github.coderodde.combinatorics.exactcover;
+package io.github.coderodde.combinatorics.exactcover.benchmark;
 
+import io.github.coderodde.combinatorics.exactcover.AlgorithmXExactCoverSolver;
+import io.github.coderodde.combinatorics.exactcover.BruteForceExactCoverSolver;
+import io.github.coderodde.combinatorics.exactcover.ExactCoverSolver;
 import static io.github.coderodde.combinatorics.exactcover.benchmark.Benchmark.getRandomInstance;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
