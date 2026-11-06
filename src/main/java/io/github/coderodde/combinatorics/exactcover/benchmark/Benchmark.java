@@ -61,7 +61,7 @@ public final class Benchmark {
             percent);
     }
     
-    private static ExactCoverInstance getRandomInstance() {
+    public static ExactCoverInstance getRandomInstance() {
         final int width  = 20;
         final int height = 35;
         

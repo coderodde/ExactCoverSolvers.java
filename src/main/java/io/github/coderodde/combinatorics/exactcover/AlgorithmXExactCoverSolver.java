@@ -6,10 +6,16 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ * This class implements the 
+ * <a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth's</a>
+ * <a href="https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X">Algorithm X</a> 
+ * with <a href="https://en.wikipedia.org/wiki/Dancing_links">dancing links (DLX)</a>.
  */
 public final class AlgorithmXExactCoverSolver implements ExactCoverSolver {
 
+    /**
+     * {@inheritDoc }
+     */
     @Override
     public ExactCoverSolution solve(ExactCoverInstance instance) {
         Objects.requireNonNull(instance, "The input problem instance is null.");
@@ -64,7 +70,7 @@ public final class AlgorithmXExactCoverSolver implements ExactCoverSolver {
             
             ColumnNode[] columns = new ColumnNode[width];
             
-            // Build the column haders:
+            // Build the column headers:
             for (int x = 0; x < width; ++x) {
                 ColumnNode column = new ColumnNode(x);
                 columns[x]        = column;
@@ -202,6 +208,9 @@ public final class AlgorithmXExactCoverSolver implements ExactCoverSolver {
                     node.up.down = node;
                 }
             }
+            
+            column.right.left = column;
+            column.left.right = column;
         }
         
         private List<Integer> getSelected() {
