@@ -9,7 +9,8 @@ import java.util.Objects;
  * This class implements the 
  * <a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald Knuth's</a>
  * <a href="https://en.wikipedia.org/wiki/Knuth%27s_Algorithm_X">Algorithm X</a> 
- * with <a href="https://en.wikipedia.org/wiki/Dancing_links">dancing links (DLX)</a>.
+ * with 
+ * <a href="https://en.wikipedia.org/wiki/Dancing_links">dancing links (DLX)</a>.
  */
 public final class AlgorithmXExactCoverSolver implements ExactCoverSolver {
 
@@ -50,17 +51,15 @@ public final class AlgorithmXExactCoverSolver implements ExactCoverSolver {
     private static final class ColumnNode extends Node {
         
         int size;
-        final int columnIndex;
         
-        ColumnNode(int columnIndex) {
-            this.columnIndex = columnIndex;
-            this.column      = this;
+        ColumnNode() {
+            this.column = this;
         }
     }
     
     private static final class Search {
         
-        private final ColumnNode root = new ColumnNode(-1);
+        private final ColumnNode root = new ColumnNode();
         
         private final List<Integer> selected = new ArrayList<>();
         
@@ -72,7 +71,7 @@ public final class AlgorithmXExactCoverSolver implements ExactCoverSolver {
             
             // Build the column headers:
             for (int x = 0; x < width; ++x) {
-                ColumnNode column = new ColumnNode(x);
+                ColumnNode column = new ColumnNode();
                 columns[x]        = column;
                 
                 // Insert immediately before root:
